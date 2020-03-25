@@ -15,8 +15,10 @@ class ReactHls extends React.Component {
         this.hls = null;
     }
 
-    componentDidUpdate () {
-        this._initPlayer();
+    componentDidUpdate (prevProps) {
+        if (prevProps.url !== this.props.url) {
+            this._initPlayer();
+        }
     }
 
     componentDidMount () {
